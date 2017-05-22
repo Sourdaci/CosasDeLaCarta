@@ -16,7 +16,7 @@
 	}
 	
 	// Numero de registros que devuelve la búsqueda
-	$cuentaRegistros = Plato::contarPlatosTemporadaPorDesc($_SESSION['parametroBusquedaPlato']);
+	$cuentaRegistros = Plato::contarPlatosPorDesc($_SESSION['parametroBusquedaPlato']);
 	
 	if($cuentaRegistros != -1){ // -1 Significa ERROR DE BD
 	
@@ -44,7 +44,7 @@
 		}
 	
 		// Pedimos al modelo el array con los resultados
-		$coleccion = Plato::getPlatosTemporadaPorDesc($_SESSION['parametroBusquedaPlato'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
+		$coleccion = Plato::getPlatosPorDesc($_SESSION['parametroBusquedaPlato'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
 		
 		if(count($coleccion) != 0){
 			$platosComoArray = Array();

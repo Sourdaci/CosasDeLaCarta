@@ -165,6 +165,17 @@
 		
 		/*
 		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
+		* Devuelve el número de Platos coincidentes.
+		* En caso de error, se devuelve -1
+		*
+		* $desc: String a comprobar en el campo nombre de la BD
+		*/
+		public static function contarPlatosTemporadaPorDesc($desc){
+			return PlatoPDO::contarPlatosTemporadaPorDesc($desc);
+		}
+		
+		/*
+		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
 		* Devuelve todos los Platos en array de array asociativo
 		* En caso de error, se devuelve null
 		*
@@ -174,6 +185,33 @@
 		*/
 		public static function getPlatosPorDesc($desc, $numeroSaltar, $numeroContar){
 			$listaRecibida = PlatoPDO::getPlatosPorDesc($desc, $numeroSaltar, $numeroContar);
+			if($listaRecibida != null){
+				$objetosPlato = Array();
+				foreach($listaRecibida AS $entrada){
+					$objetosPlato[] = new Plato($entrada['cod'], $entrada['nombre'], 
+						$entrada['Primavera'], $entrada['Verano'], $entrada['Otono'], $entrada['Invierno'], 
+						$entrada['Gluten'], $entrada['Crustaceo'], $entrada['Huevo'], $entrada['Pescado'], 
+						$entrada['Cacahuete'], $entrada['Soja'], $entrada['Lacteos'], $entrada['Cascara'], 
+						$entrada['Apio'], $entrada['Mostaza'], $entrada['Sesamo'], $entrada['Sulfitos'], 
+						$entrada['Altramuces'], $entrada['Moluscos']);
+				}
+				return $objetosPlato;
+			}else{
+				return null;
+			}
+		}
+		
+		/*
+		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
+		* Devuelve todos los Platos en array de array asociativo
+		* En caso de error, se devuelve null
+		*
+		* $desc: String a comprobar en el campo nombre de la BD
+		* $numeroSaltar: Integer, Platos que excluir de la búsqueda (paginación)
+		* $numeroContar: Integer, Platos que devolver con la búsqueda (paginación)
+		*/
+		public static function getPlatosTemporadaPorDesc($desc, $numeroSaltar, $numeroContar){
+			$listaRecibida = PlatoPDO::getPlatosTemporadaPorDesc($desc, $numeroSaltar, $numeroContar);
 			if($listaRecibida != null){
 				$objetosPlato = Array();
 				foreach($listaRecibida AS $entrada){

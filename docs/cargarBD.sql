@@ -15,5 +15,9 @@ insert into Plato (`nombre`,
  true, true, false, false, false, false, true, true, true, 
  true, false, false, true, false, false, true, false, false),
  ("Caldo avícola cuajado de pasta y pan cúbico crujiente", 
- false, false, true, true, false, false, false, false, false, 
+ false, false, true, true, true, false, false, false, false, 
  false, false, false, false, false, false, false, false, false);
+ 
+ /* Password = paso */
+ insert into Config (`Temporada`, `Password`) VALUES 
+ ("Primavera", "d63c223383eae016bdd35fd0521e00dabf533b2485f80bae195277a0b5079f50ec286cacea7dc21cc8b849451d7c7226d6616df3e8a92829180ee83ceb71cfa0");

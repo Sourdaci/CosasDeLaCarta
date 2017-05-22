@@ -1,0 +1,97 @@
+#buscaPlato, #divCompleta{
+	box-shadow: 0 0 5px white;
+	width: 40%;
+	min-width: 400px;
+}
+
+#divCompleta{
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	color: #DEB900;
+	cursor: pointer;
+}
+
+td{
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+td:first-child{
+	border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.icoAlergia{
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+
+.icoGluten{
+	background-image: url("../img/aler_glu.png");
+	background-size: 100% 100%;
+}
+
+.icoCrustaceo{
+	background-image: url("../img/aler_cru.png");
+	background-size: 100% 100%;
+}
+
+.icoHuevo{
+	background-image: url("../img/aler_hue.png");
+	background-size: 100% 100%;
+}
+
+.icoPescado{
+	background-image: url("../img/aler_pes.png");
+	background-size: 100% 100%;
+}
+
+.icoCacahuete{
+	background-image: url("../img/aler_cac.png");
+	background-size: 100% 100%;
+}
+
+.icoSoja{
+	background-image: url("../img/aler_soja.png");
+	background-size: 100% 100%;
+}
+
+.icoLacteos{
+	background-image: url("../img/aler_lac.png");
+	background-size: 100% 100%;
+}
+
+.icoCascara{
+	background-image: url("../img/aler_cas.png");
+	background-size: 100% 100%;
+}
+
+.icoApio{
+	background-image: url("../img/aler_api.png");
+	background-size: 100% 100%;
+}
+
+.icoMostaza{
+	background-image: url("../img/aler_mos.png");
+	background-size: 100% 100%;
+}
+
+.icoSesamo{
+	background-image: url("../img/aler_ses.png");
+	background-size: 100% 100%;
+}
+
+.icoSulfitos{
+	background-image: url("../img/aler_sul.png");
+	background-size: 100% 100%;
+}
+
+.icoAltramuces{
+	background-image: url("../img/aler_alt.png");
+	background-size: 100% 100%;
+}
+
+.icoMoluscos{
+	background-image: url("../img/aler_mol.png");
+	background-size: 100% 100%;
+}

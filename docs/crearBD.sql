@@ -23,3 +23,8 @@ create table `Plato` (
     `Altramuces` boolean,
     `Moluscos` boolean
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+create table `Config` (
+	`Temporada` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci not null,
+    `Password` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci not null
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

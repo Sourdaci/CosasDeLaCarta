@@ -39,6 +39,64 @@ EOQ;
 		
 		/*
 		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
+		* Devuelve el número de Platos coincidentes.
+		* En caso de error, se devuelve -1
+		*
+		* $desc: String a comprobar en el campo nombre de la BD
+		*/
+		public static function contarPlatosTemporadaPorDesc($desc){
+			
+			$temporada = self::getTemporadaParaQuery();
+			
+			$sql = <<< EOQ
+            SELECT count(*) AS Cuenta 
+			FROM Plato 
+            WHERE nombre LIKE "%$desc%" 
+			$temporada
+EOQ;
+			$resultado = DBPDO::ejecutarConsulta($sql);
+			if($resultado == null || $resultado == false){
+                return -1;
+            }else{
+                if($resultado->rowCount() == 1){
+					// Array asociativo con los datos de la tupla de resultados
+                    return $resultado->fetch(PDO::FETCH_ASSOC)['Cuenta'];
+                }else{
+                    return -1;
+                }
+            }
+		}
+		
+		private static function getTemporadaParaQuery(){
+			
+			$sql = <<< EOQ
+			SELECT Temporada 
+			FROM Config
+EOQ;
+			
+			$resultado = DBPDO::ejecutarConsulta($sql);
+			
+			$temporada = "";
+			switch($resultado->fetch(PDO::FETCH_ASSOC)['Temporada']){
+				case "Primavera":
+					$temporada = "AND Primavera=true";
+					break;
+				case "Verano":
+					$temporada = "AND Verano=true";
+					break;
+				case "Otoño":
+					$temporada = "AND Otono=true";
+					break;
+				case "Invierno":
+					$temporada = "AND Invierno=true";
+					break;
+			}
+			
+			return $temporada;
+		}
+		
+		/*
+		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
 		* Devuelve todos los Platos en array de array asociativo
 		* En caso de error, se devuelve null
 		*
@@ -51,6 +109,39 @@ EOQ;
 			$sql = <<< EOQ
             SELECT * FROM Plato
             WHERE nombre LIKE "%$desc%"
+			ORDER BY nombre ASC
+			LIMIT $numeroSaltar, $numeroContar
+EOQ;
+			$resultado = DBPDO::ejecutarConsulta($sql);
+			if($resultado == null || $resultado == false){
+                return null;
+            }else{
+                if($resultado->rowCount() != 0){
+					// Array que contiene los array asociativos de Platos
+                    return $resultado->fetchAll(PDO::FETCH_ASSOC);
+                }else{
+                    return null;
+                }
+            }
+		}
+		
+		/*
+		* Busca en la BD todos los Platos cuya descripción contiene la que se pasa por parámetro
+		* Devuelve todos los Platos en array de array asociativo
+		* En caso de error, se devuelve null
+		*
+		* $desc: String a comprobar en el campo nombre de la BD
+		* $numeroSaltar: Integer, Platos que excluir de la búsqueda (paginación)
+		* $numeroContar: Integer, Platos que devolver con la búsqueda (paginación)
+		*/
+		public static function getPlatosTemporadaPorDesc($desc, $numeroSaltar, $numeroContar){
+			
+			$temporada = self::getTemporadaParaQuery();
+			
+			$sql = <<< EOQ
+            SELECT * FROM Plato
+            WHERE nombre LIKE "%$desc%"
+			$temporada 
 			ORDER BY nombre ASC
 			LIMIT $numeroSaltar, $numeroContar
 EOQ;

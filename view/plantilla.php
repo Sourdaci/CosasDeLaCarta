@@ -14,6 +14,14 @@
 		finCabecera();
 	}
 	
+	function paginaCarta(){
+		inicioCabecera();
+		?>
+		<link rel="stylesheet" href="webroot/css/carta.css">
+		<?php
+		finCabecera();
+	}
+	
 	function inicioCabecera(){
 		?>
 <!DOCTYPE html>

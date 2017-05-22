@@ -17,7 +17,7 @@
 					printf("<h2>%s</h2>", $_SESSION['mensaje']);
 				}
 				?>
-				<h2>Nuestra carta de Temporada</h2>
+				<h2>Nuestra carta Completa</h2>
 				<!-- Formulario de Filtrado -->
 				<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 					<p>Buscar por nombre Plato: 
@@ -66,11 +66,6 @@
 				}
 				echo("<br />Pagina <b>$paginaActual</b> de <b>$paginaMaxima</b><br />");
 				echo("Entradas: <b>$totalEntradas</b>" . PHP_EOL);
-				?>
-				<div id="divCompleta" onclick="location.href='cartaCompleta.php'">
-					<p>Si busca un plato que no encuentra, es posible que no forme parte de la temporada actual. Puede consultar la lista completa aquí.</p>
-				</div>
-				<?php
 			}else{
 				?> <h2>No se han encontrado entradas</h2> <?php
 			}

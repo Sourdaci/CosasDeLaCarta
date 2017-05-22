@@ -4,8 +4,8 @@
 	
 	paginaCarta();
 	
-	require_once("view/vCarta.php");
-	require_once("controller/cCarta.php");
+	require_once("view/vCartaCompleta.php");
+	require_once("controller/cCartaCompleta.php");
 	
 	finPagina();
 ?>
