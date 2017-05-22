@@ -1,0 +1,54 @@
+#carrusel{
+	width:588px;
+	overflow:hidden;
+	height:100px;
+	position:absolute;
+	bottom: 5px;
+}
+
+#carrusel .izquierda_flecha{
+	left:10px;
+}
+
+#bigimage{
+	max-height: calc(100% - 120px);
+}
+
+.izquierda_flecha, .derecha_flecha{
+	width: 40px;
+	height: 40px;
+	background-color: rgba(210, 210, 210, 0.3);
+	border-radius: 10px;
+	bottom: 30px;
+	margin-top:-9px;
+	z-index: 1;
+	position:absolute;
+}
+
+.izquierda_flecha>img, .derecha_flecha>img{
+	width: 100%;
+	height: 100%;
+}
+
+#carrusel .derecha_flecha{
+	right: 10px;
+}
+
+.carrusel{
+	width:4000px;
+	left:0px;
+	position:absolute;
+	z-index:0
+}
+
+.carrusel>div{
+    float: left;
+    height: 100px;
+    margin-right: 5px;
+    width: 195px;
+    text-align:center;
+}
+
+.carrusel .img_carrusel{
+	cursor:pointer;
+}

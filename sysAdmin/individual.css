@@ -1,0 +1,40 @@
+tr:nth-child(odd){
+	background-color: rgb(210,210,210);
+}
+
+th{
+	background-color: black;
+	color: white;
+}
+
+td{
+	border-right: 1px solid black;
+}
+
+tr>td:last-child{
+	border-right: none;
+}
+
+tr>td{
+	text-align: center;
+	width: 44px;
+}
+
+tr>td:first-child{
+	text-align: right;
+}
+
+tr>td:nth-child(2){
+	text-align: left;
+	width: 180px;
+}
+
+#divNuevo{
+	display: flex;
+	align-items: center;
+}
+
+.campoMaloFormulario
+{
+	background-color: #F00;
+}
