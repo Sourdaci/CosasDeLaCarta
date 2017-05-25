@@ -11,12 +11,11 @@
 		
 		protected $cod; // Autonumerico en BD
 		protected $nombre; // String
-		//protected $tipo; // String
 		protected $temporadas; // Array de Boolean
 		protected $alergenos; // Array de Boolean
 		
 		public function __construct(
-			$cod, $nombre, /*$tipo,*/ 
+			$cod, $nombre, 
 			$esPrimavera, $esVerano, $esOtono, $esInvierno, 
 			$contGluten, $contCrustaceo, $contHuevo, $contPescado,
 			$contCacahuete, $contSoja, $contLacteos, $contCascara, 
@@ -51,7 +50,7 @@
 		}
 		
 		// Devuelve el cod del Plato
-		public function getId(){
+		public function getCod(){
 			return $this->cod;
 		}
 		
@@ -59,11 +58,7 @@
 		public function getNombre(){
 			return $this->nombre;
 		}
-		/*
-		public function getTipo(){
-			return $this->tipo;
-		}
-		*/
+		
 		/*
 		* SECCION TEMPORADA
 		*/
@@ -142,13 +137,12 @@
 			return $this->alergenos["Moluscos"];
 		}
 		
-		public static function getPlatoComoArray($plato){
+		public function getPlatoComoArray(){
 			$datos = Array();
-			$datos['cod'] = $plato->cod;
-			$datos['nombre'] = $plato->nombre;
-			//$datos['tipo'] = $plato->tipo;
-			$datos['season'] = $plato->temporadas;
-			$datos['alergias'] = $plato->alergenos;
+			$datos['cod'] = $this->cod;
+			$datos['nombre'] = $this->nombre;
+			$datos['season'] = $this->temporadas;
+			$datos['alergias'] = $this->alergenos;
 			return $datos;
 		}
 		
@@ -247,8 +241,18 @@
 		* $id: ID del Plato a modificar
 		* $nombre: Campo del Plato a modificar (estos Platos solo modifican 1 campo)
 		*/
-		public static function modificarPlato($cod, $nombre){
-			return PlatoPDO::modificarPlato($cod, $nombre);
+		public static function modificarPlato($cod, $nombre, 
+				$esPrimavera, $esVerano, $esOtono, $esInvierno, 
+				$contGluten, $contCrustaceo, $contHuevo, $contPescado,
+				$contCacahuete, $contSoja, $contLacteos, $contCascara, 
+				$contApio, $contMostaza, $contSesamo, $contSulfitos, 
+				$contAltramuces, $contMoluscos){
+			return PlatoPDO::modificarPlato($cod, $nombre, 
+				$esPrimavera, $esVerano, $esOtono, $esInvierno, 
+				$contGluten, $contCrustaceo, $contHuevo, $contPescado,
+				$contCacahuete, $contSoja, $contLacteos, $contCascara, 
+				$contApio, $contMostaza, $contSesamo, $contSulfitos, 
+				$contAltramuces, $contMoluscos);
 		}
 		
 		/*
@@ -268,7 +272,7 @@
 		* En caso contrario, devuelve false
 		*/
 		public static function insertarPlato(
-			$cod, $nombre, /*$tipo,*/ 
+			$nombre, 
 			$esPrimavera, $esVerano, $esOtono, $esInvierno, 
 			$contGluten, $contCrustaceo, $contHuevo, $contPescado,
 			$contCacahuete, $contSoja, $contLacteos, $contCascara, 
@@ -276,7 +280,7 @@
 			$contAltramuces, $contMoluscos
 		){
 			return PlatoPDO::insertarPlato(
-				$cod, $nombre, /*$tipo,*/ 
+				$nombre, 
 				$esPrimavera, $esVerano, $esOtono, $esInvierno, 
 				$contGluten, $contCrustaceo, $contHuevo, $contPescado,
 				$contCacahuete, $contSoja, $contLacteos, $contCascara, 

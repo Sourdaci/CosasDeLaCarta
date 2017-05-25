@@ -48,5 +48,25 @@
 				return $resultSet->rowCount();
 			}
 		}
+		
+		public static function verificar($pass){
+
+            $sql = <<< EOQ
+            SELECT Password FROM Config 
+            WHERE Password=sha2('$pass', 512)
+EOQ;
+
+            $resultado = self::ejecutarConsulta($sql);
+
+            if($resultado == null || $resultado == false){
+                return false;
+            }else{
+                if($resultado->rowCount() == 1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
     }
 ?>

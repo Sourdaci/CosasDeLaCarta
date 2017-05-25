@@ -6,11 +6,7 @@
 	*
 	*/
 	
-	require_once(__DIR__ ."/../configuraciones.php");
-	
-	require_once(__DIR__ ."/../model/Usuario.php");
-	require_once(__DIR__ ."/../model/UsuarioPDO.php");
-	require_once(__DIR__ ."/../model/DBPDO.php");
+	require_once(__DIR__ ."/../../model/DBPDO.php");
 
 	session_start();
 	
@@ -30,28 +26,27 @@
 	// Comprobamos si ya se ha enviado el formulario 
 	if (isset($_POST['enviar'])){
 		// Recuperamos los valores de login
-		$usuario = $_POST['usuario']; 
 		$password = $_POST['password']; 
 		
-		if (empty($usuario) || empty($password)){
+		if (empty($password)){
 			$_SESSION['errorLogin'] = "Debes introducir un nombre de usuario y una contraseña"; 
 		}else { 
 			// Comprobamos las credenciales con la base de datos
-			$recibido = Usuario::validarUsuario($usuario, $password); 
+			$recibido = DBPDO::verificar($password); 
 			if ($recibido != null) {
 				// Almacenamiento de usuario y redirección a página principal
-				$_SESSION['usuario']=$recibido;
+				$_SESSION['usuario']="sysAdmin";
 				header("Content-Type: text/html;charset=utf-8");
 				header("Location: ../index.php");                     
 			} else { 
 				// Si las credenciales no son válidas, se vuelven a pedir 
-				$_SESSION['errorLogin'] = "¡Usuario o contraseña no válidos!"; 
+				$_SESSION['errorLogin'] = "¡Contraseña errónea!"; 
 			}          
 		} 
 	}
 	
 	// Plantilla del sitio, con estilo
-    require_once(PLANTILLA_ESTILO);
+    require_once(__DIR__ . "/../../view/plantillaAdmin.php");
 	inicioPlantilla("Login");
 	// Vista del login (formulario)
 	require_once(__DIR__ ."/../view/vLogin.php");

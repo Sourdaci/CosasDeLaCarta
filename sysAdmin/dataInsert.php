@@ -2,9 +2,7 @@
 	
 	require_once("configuraciones.php");
 	require_once(PLANTILLA_ESTILO);
-	require_once(RUTA_LIB_VALIDACION);
-	require_once("model/Departamento.php");
-	require_once("model/Usuario.php");
+	require_once(__DIR__ . "/../model/Plato.php");
 	
 	session_start();
 	$_SESSION['parametroBusquedaMantenimiento'] = "";

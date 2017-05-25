@@ -6,55 +6,69 @@
 	*
 	*/
 
-	function muestraInicio($coleccionEntradas, $claveEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
+	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
 		
-		inicioPlantilla("Platos");
-		botonSalirUsuario($nombreUsuario);
+		inicioPlantilla("Les Platos");
+		
 		if($coleccionEntradas != null){
 			if(count($coleccionEntradas) > 0){
-				// Para recuperar los valores de cada elemento en orden
-				$clavesArray = array_keys($coleccionEntradas[0]);
 				
 				if(isset($_SESSION['mensaje'])){
-					printf("<h2>%s</h2>", $_SESSION['mensaje']);
+					printf("%s", $_SESSION['mensaje']);
 				}
-				
 				?>
-				<a href="dataInsert.php"><div id="divNuevo"><img src="img/new.png" /><h3>Nuevo Plato</h3></div></a>
 				<!-- Formulario de Filtrado -->
-				<form name="BuscaDecDep" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-					<p>Buscar por Nombre Plato: 
+				<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+					<p>Buscar por nombre Plato: 
 					<input type="text" name="cadenaBusqueda" width="40"> 
 					<input type="submit" name="btnBuscar" value="Buscar">
 					<br />Dejar vacío para buscar todos los Platos</p>
 				</form>
-				
 				<table>
 				<tr>
-				<?php
-				foreach($coleccionEntradas[0] AS $valor){
-					echo("<th>$valor</th>".PHP_EOL);
-				}
-				?>
-				<th>Editar</th>
-				<th>Borrar</th>
+					<th>Nombre</th>
+					<th>Temporada</th>
+					<th>Alérgenos</th>
 				</tr>
+				<tr>
 				<?php
 				// Valores de tabla
 				foreach($coleccionEntradas AS $entrada){
 					echo("<tr>" . PHP_EOL);
-					// Recuperación de los valores de elementos en orden
-					foreach($clavesArray AS $nombreClave){
-						echo("<td>$entrada[$nombreClave]</td>" . PHP_EOL);
+					// Recuperación de los valores de elementos
+					echo('<td>' . $entrada["nombre"] . '</td>' . PHP_EOL);
+					echo('<td>');
+					foreach($entrada["season"] AS $nombre => $valor){
+						if($valor){
+							if($nombre == "Otono"){
+								echo('<div class="icoAlergia ico' . $nombre . '" title="Otoño"></div>');
+							}else{
+								echo('<div class="icoAlergia ico' . $nombre . '" title="' . $nombre . '"></div>');
+							}
+							
+						}
 					}
+					echo('</td>');
+					echo('<td>');
+					$rellenar = true;
+					foreach($entrada["alergias"] AS $nombre => $valor){
+						if($valor){
+							echo('<div class="icoAlergia ico' . $nombre . '" title="' . $nombre . '"></div>');
+							$rellenar = false;
+						}
+					}
+					if($rellenar){
+						echo('<div class="icoAlergia"></div>');
+					}
+					echo('</td>');
 					?>
 					<td>
-					<a href="dataChange.php?id=<?php echo($entrada[$claveEntradas]); ?>">
+					<a href="dataChange.php?id=<?php echo($entrada['cod']); ?>">
 					<img src="img/edit.png" alt="Modificar" />
 					</a>
 					</td>
 					<td>
-					<a href="dataDrop.php?id=<?php echo($entrada[$claveEntradas]); ?>">
+					<a href="dataDrop.php?id=<?php echo($entrada['cod']); ?>">
 					<img src="img/delete.png" alt="Borrar" />
 					</a>
 					</td>
@@ -81,20 +95,12 @@
 			?> <h2>Ha ocurrido un error en las operaciones de BD</h2> <?php
 		}
 		finPlantilla();
+		unset($_SESSION['mensaje']);
 	}
 	
 	function muestraErrorInicio(){
 		inicioPlantilla("Les Platos");
-		botonSalirUsuario();
 		echo("<h2>Lo siento, no hay destino definido</h2>");
 		finPlantilla();
-	}
-	
-	function botonSalirUsuario(){
-		// Botón de Salir en Formulario
-		printf('<form action=%s method="post">', $_SERVER['PHP_SELF']);
-		echo('<button type="submit" name="salir" value="salir">Cerrar sesión</button>');
-		echo("</p>");
-		echo("</form>");
 	}
 ?>

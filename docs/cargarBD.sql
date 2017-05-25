@@ -1,22 +1,25 @@
 use restaurant;
 insert into Plato (`nombre`,
  `Primavera`, `Verano`, `Otono`, `Invierno`, `Gluten`, `Crustaceo`, `Huevo`, `Pescado`, `Cacahuete`,
- `Soja`, `Lacteos`, `Cascara`, `Apio`, `Mostaza`, `Sesamo`, `Sulfitos`, `Altramuces`, `Moluscos`) VALUES 
+ `Soja`, `Lacteos`, `Cascara`, `Apio`, `Mostaza`, `Sesamo`, `Sulfitos`, `Altramuces`, `Moluscos`, `Visible`) VALUES 
  ("Hilos de Pasta con emulsión de tomate y perejil", 
  true, false, false, true, true, false, false, false, false, 
- false, false, false, false, false, false, false, false, false),
+ false, false, false, false, false, false, false, false, false, true),
  ("Hilos de Pasta con desmechado de bonito", 
  false, true, false, false, true, false, false, true, false, 
- false, false, false, false, false, false, false, false, false),
+ false, false, false, false, false, false, false, false, false, true),
  ("Ensalada clásica", 
  true, true, false, false, false, false, false, false, false, 
- false, false, false, false, false, false, false, false, false),
+ false, false, false, false, false, false, false, false, false, true),
  ("Ensalada Surtida a la emulsión de Pedro Ximénez", 
  true, true, false, false, false, false, true, true, true, 
- true, false, false, true, false, false, true, false, false),
+ true, false, false, true, false, false, true, false, false, true),
  ("Caldo avícola cuajado de pasta y pan cúbico crujiente", 
  false, false, true, true, true, false, false, false, false, 
- false, false, false, false, false, false, false, false, false);
+ false, false, false, false, false, false, false, false, false, true),
+ ("Plato Oculto de Prueba", 
+ false, false, true, true, true, false, false, false, false, 
+ false, false, false, false, false, false, false, false, false, false);
  
  /* Password = paso */
  insert into Config (`Temporada`, `Password`) VALUES 

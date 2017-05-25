@@ -22,6 +22,14 @@
 		finCabecera();
 	}
 	
+	function paginaNosotros(){
+		inicioCabecera();
+		?>
+		<link rel="stylesheet" href="webroot/css/nosotros.css">
+		<?php
+		finCabecera();
+	}
+	
 	function inicioCabecera(){
 		?>
 <!DOCTYPE html>

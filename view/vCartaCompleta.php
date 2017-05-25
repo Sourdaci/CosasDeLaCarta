@@ -28,6 +28,7 @@
 				<table>
 				<tr>
 					<th>Nombre</th>
+					<th>Temporada</th>
 					<th>Alérgenos</th>
 				</tr>
 				<tr>
@@ -37,6 +38,18 @@
 					echo("<tr>" . PHP_EOL);
 					// Recuperación de los valores de elementos
 					echo('<td>' . $entrada["nombre"] . '</td>' . PHP_EOL);
+					echo('<td>');
+					foreach($entrada["season"] AS $nombre => $valor){
+						if($valor){
+							if($nombre == "Otono"){
+								echo('<div class="icoAlergia ico' . $nombre . '" title="Otoño"></div>');
+							}else{
+								echo('<div class="icoAlergia ico' . $nombre . '" title="' . $nombre . '"></div>');
+							}
+							
+						}
+					}
+					echo('</td>');
 					echo('<td>');
 					$rellenar = true;
 					foreach($entrada["alergias"] AS $nombre => $valor){

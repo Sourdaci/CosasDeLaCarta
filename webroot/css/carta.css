@@ -14,15 +14,26 @@
 
 td{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	padding: 1px 5px 1px 5px;
 }
 
-td:first-child{
+tr~tr:hover{
+	background-color: #1c0b00;
+}
+
+td:first-child, td:nth-child(2){
 	border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .icoAlergia{
 	width: 32px;
 	height: 32px;
+	float: left;
+}
+
+.icoAlergiaAdmin{
+	width: 40px;
+	height: 40px;
 	float: left;
 }
 
@@ -93,5 +104,25 @@ td:first-child{
 
 .icoMoluscos{
 	background-image: url("../img/aler_mol.png");
+	background-size: 100% 100%;
+}
+
+.icoPrimavera{
+	background-image: url("../img/flor.png");
+	background-size: 100% 100%;
+}
+
+.icoVerano{
+	background-image: url("../img/sol.png");
+	background-size: 100% 100%;
+}
+
+.icoOtono{
+	background-image: url("../img/hoja_marchita.png");
+	background-size: 100% 100%;
+}
+
+.icoInvierno{
+	background-image: url("../img/copo_nieve.png");
 	background-size: 100% 100%;
 }

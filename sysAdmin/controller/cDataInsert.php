@@ -5,39 +5,99 @@
 	if(isset($_POST['btnEnviar'])){
 		$valido = true; // Comenzamos asumiendo que todo está bien
 		
-		if(isset($_POST['CodDepartamento'])){
-			// Comprobación de ID de departamento: 3 Mayúsculas
-			$camposErroneos['CodDepartamento'] = validarCampoSoloAlfMayus($_POST['CodDepartamento']);
-			if($camposErroneos['CodDepartamento'] == null){
-				if(strlen($_POST['CodDepartamento']) != 3){
-					// Eran Mayúsculas pero no eran 3
-					$camposErroneos['CodDepartamento'] = true;
-					$valido = false;
-				}
-			}else{
-				$valido = false;
-			}
-		}else{
-			// No hay ID para comprobar
-			$camposErroneos['CodDepartamento'] = true;
+		if(!isset($_POST['nombre']) || strlen($_POST['nombre']) == 0){
+			// No hay nombre para comprobar
+			$camposErroneos['nombre'] = true;
 			$valido = false;
 		}
 		
-		if(isset($_POST['DescDepartamento'])){
-			// Comprobación de descripción de Departamento: texto alfabetico
-			$camposErroneos['DescDepartamento'] = validarCampoSoloTexto($_POST['DescDepartamento']);
-			if($camposErroneos['DescDepartamento'] != null){
-				$valido = false;
-			}
-		}else{
-			// No hay descripción
-			$camposErroneos['DescDepartamento'] = true;
+		if(!isset($_POST['checkPrimavera']) && !isset($_POST['checkVerano']) && !isset($_POST['checkOtono']) && !isset($_POST['checkInvierno'])){
+			$_SESSION['errorTemporada'] = true;
 			$valido = false;
 		}
 		
 		if($valido){
+			
+			$pri = "false";
+			$ver = "false";
+			$oto = "false";
+			$inv = "false";
+			if(isset($_POST['checkPrimavera'])){
+				$pri = "true";
+			}
+			if(isset($_POST['checkVerano'])){
+				$ver = "true";
+			}
+			if(isset($_POST['checkOtono'])){
+				$oto = "true";
+			}
+			if(isset($_POST['checkInvierno'])){
+				$inv = "true";
+			}
+			
+			$glu = "false";
+			if(isset($_POST['checkGluten'])){
+				$glu = "true";
+			}
+			$cru = "false";
+			if(isset($_POST['checkCrustaceo'])){
+				$cru = "true";
+			}
+			$hue = "false";
+			if(isset($_POST['checkHuevo'])){
+				$hue = "true";
+			}
+			$pes = "false";
+			if(isset($_POST['checkPescado'])){
+				$pes = "true";
+			}
+			$cac = "false";
+			if(isset($_POST['checkCacahuete'])){
+				$cac = "true";
+			}
+			$soj = "false";
+			if(isset($_POST['checkSoja'])){
+				$soj = "true";
+			}
+			$lac = "false";
+			if(isset($_POST['checkLacteos'])){
+				$lac = "true";
+			}
+			$cas = "false";
+			if(isset($_POST['checkCascara'])){
+				$cas = "true";
+			}
+			$api = "false";
+			if(isset($_POST['checkApio'])){
+				$api = "true";
+			}
+			$mos = "false";
+			if(isset($_POST['checkMostaza'])){
+				$mos = "true";
+			}
+			$ses = "false";
+			if(isset($_POST['checkSesamo'])){
+				$ses = "true";
+			}
+			$sul = "false";
+			if(isset($_POST['checkSulfitos'])){
+				$sul = "true";
+			}
+			$alt = "false";
+			if(isset($_POST['checkAltramuces'])){
+				$alt = "true";
+			}
+			$mol = "false";
+			if(isset($_POST['checkMoluscos'])){
+				$mol = "true";
+			}
 			// todos los campos son correctos, agregar entrada
-			if(Departamento::insertarDepartamento($_POST['CodDepartamento'], $_POST['DescDepartamento'])){
+			if(Plato::insertarPlato($_POST['nombre'], 
+				$pri, $ver, $oto, $inv,
+				$glu, $cru, $hue, $pes,
+				$cac, $soj, $lac, $cas,
+				$api, $mos, $ses, $sul,
+				$alt, $mol)){
 				// Éxito
 				$_SESSION['mensaje'] = "<h2>Inserción correcta</h2>";
 			}else{

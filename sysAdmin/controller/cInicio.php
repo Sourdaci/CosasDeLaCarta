@@ -29,10 +29,10 @@
 	}
 	
 	// Numero de registros que devuelve la búsqueda
-	$cuentaRegistros = Departamento::contarDepartamentosPorDesc($_SESSION['parametroBusquedaMantenimiento']);
+	$cuentaRegistros = Plato::contarPlatosPorDesc($_SESSION['parametroBusquedaMantenimiento']);
 	
 	if($cuentaRegistros != -1){ // -1 Significa ERROR DE BD
-	
+		
 		// Número de registros que mostraremos por página
 		$filasPorPagina = 10;
 		// Calculamos el número de la última página
@@ -57,24 +57,24 @@
 		}
 	
 		// Pedimos al modelo el array con los resultados
-		$coleccion = Departamento::getDepartamentosPorDesc($_SESSION['parametroBusquedaMantenimiento'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
+		$coleccion = Plato::getPlatosPorDesc($_SESSION['parametroBusquedaMantenimiento'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
 		
 		if(count($coleccion) != 0){
-			$deptsComoArray = Array();
+			$platosComoArray = Array();
 			// La clase convierte los objetos del array en arrays asociativos, para la vista
 			foreach($coleccion AS $elemento){
-				$deptsComoArray[] = Departamento::getDepartamentoComoArray($elemento);
+				$platosComoArray[] = $elemento->getPlatoComoArray();
 			}
 			
-			// Se llama a la vista con los datos necesarios y los Departamentos como Array asociativo
-			muestraInicio($_SESSION['usuario']->getDescUsuario(), $deptsComoArray, (array_keys($deptsComoArray[0])[0]), $paginaActual, $ultimaPagina, $cuentaRegistros);
+			// Se llama a la vista con los datos necesarios y los Platos como Array asociativo
+			muestraInicio($platosComoArray, $paginaActual, $ultimaPagina, $cuentaRegistros);
 		}else{
 			// Se llama a la vista con los datos mínimos para que se muestre el mensaje de "No hay resultados"
-			muestraInicio($_SESSION['usuario']->getDescUsuario(), $coleccion, null, 0, 0, 0);
+			muestraInicio($coleccion, 0, 0, 0);
 		}
 	}else{
 		// Se le pasa la descripción del usuario como parámetro
 		// Intentando evitar que la vista conozca el objeto
-		muestraInicio($_SESSION['usuario']->getDescUsuario(), null, null, 0, 0);
+		muestraInicio(null, 0, 0, 0);
 	}
 ?>
