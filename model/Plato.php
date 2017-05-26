@@ -325,5 +325,27 @@
 				$contAltramuces, $contMoluscos
 			);
 		}
+		
+		/*
+		* Busca un Plato en la BD y lo oculta al usuario de la web
+		* Si lo oculta, devuelve true
+		* En caso contrario, devuelve false
+		*
+		* $codPlato: ID del Plato a ocultar
+		*/
+		public static function ocultarPlato($codPlato){
+			return PlatoPDO::ocultarPlato($codPlato);
+		}
+		
+		/*
+		* Busca un Plato en la BD y lo oculta al usuario de la web
+		* Si lo oculta, devuelve true
+		* En caso contrario, devuelve false
+		*
+		* $codPlato: ID del Plato a ocultar
+		*/
+		public static function mostrarPlato($codPlato){
+			return PlatoPDO::mostrarPlato($codPlato);
+		}
 	}
 ?>

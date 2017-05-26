@@ -18,6 +18,10 @@ html, body{
 	min-width: 800px;
 }
 
+a{
+	color: #DEB900;
+}
+
 body{
 	background-color: #2d1c0c;
 	font-family: CourgetteRegular;
@@ -82,4 +86,15 @@ main{
 	height: 80%;
 	min-height: 480px;
 	display: flex;
+}
+
+@media only screen and (orientation: portrait) {
+	body{
+		display: flex;
+		flex-flow: column;
+	}
+	nav{
+		width: 100%;
+		padding-top: 2%;
+	}
 }

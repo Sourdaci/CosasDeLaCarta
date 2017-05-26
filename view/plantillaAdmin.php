@@ -24,9 +24,13 @@
 			echo('<h1>'.$texto.'</h1>'.PHP_EOL);
 			?>
 		</header>
-		<button id="botonAtras" onclick="goBack()">Atrás</button>
 		<main>
+		<button id="botonAtras" onclick="goBack()">Atrás</button>
 		<?php
+		printf('<form id="formExit" action=%s method="post">', $_SERVER['PHP_SELF']);
+		echo('<button type="submit" name="salir" value="salir">Cerrar sesión</button>');
+		echo("</p>");
+		echo("</form>");
 	}
 	
 	// Etiquetas de final de archivo HTML generado por PHP

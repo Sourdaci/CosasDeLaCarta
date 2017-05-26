@@ -45,9 +45,6 @@
 		} 
 	}
 	
-	// Plantilla del sitio, con estilo
-    require_once(__DIR__ . "/../../view/plantillaAdmin.php");
-	inicioPlantilla("Login");
 	// Vista del login (formulario)
 	require_once(__DIR__ ."/../view/vLogin.php");
 	finPlantilla();
