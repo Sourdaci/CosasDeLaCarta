@@ -75,6 +75,11 @@
 					<img src="img/delete.png" alt="Borrar" />
 					</a>
 					</td>
+					<!--<td>
+						<?php
+							//echo('<button data-cod="' . $entrada['cod'] . '" class="buttonAPI"></button>');
+						?>
+					</td>-->
 					</tr>
 					<?php
 				}

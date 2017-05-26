@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="../webroot/css/estilo.css" type="text/css" media="all" />
 		<link rel="stylesheet" href="../webroot/css/carta.css" type="text/css" media="all" />
 		<link rel="stylesheet" href="individual.css" type="text/css" media="all" />
+		<!--<script type="text/javascript" src="../webroot/js/api.js"></script>-->
 		<script>
 			function goBack() {
 				window.history.back()

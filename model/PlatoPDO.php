@@ -408,5 +408,23 @@ EOQ;
                 }
             }
 		}
+		
+		public static function platoVisible($cod){
+			$sql = <<< EOQ
+            SELECT Visible 
+			FROM Plato
+            WHERE cod="$cod"
+EOQ;
+			$resultado = DBPDO::ejecutarConsulta($sql);
+			if($resultado == null || $resultado == false){
+                return false;
+            }else{
+                if($resultado->rowCount() == 1){
+					return ($resultado->fetch(PDO::FETCH_ASSOC))['Visible'];
+                }else{
+                    return false;
+                }
+            }
+		}
 	}
 ?>

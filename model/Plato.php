@@ -347,5 +347,9 @@
 		public static function mostrarPlato($codPlato){
 			return PlatoPDO::mostrarPlato($codPlato);
 		}
+		
+		public static function platoVisible($cod){
+			return PlatoPDO::platoVisible($cod);
+		}
 	}
 ?>
