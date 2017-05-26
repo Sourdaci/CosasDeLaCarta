@@ -43,25 +43,25 @@
 			$paginaActual = $ultimaPagina; 
 		}
 	
-		// Pedimos al modelo el array con los resultados
-		$coleccion = Plato::getPlatosTemporadaPorDesc($_SESSION['parametroBusquedaPlato'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
+		$coleccion = Array();
 		
-		if(count($coleccion) != 0){
+		if($cuentaRegistros != 0){
+			// Pedimos al modelo el array con los resultados
+			$coleccion = Plato::getPlatosTemporadaPorDesc($_SESSION['parametroBusquedaPlato'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
 			$platosComoArray = Array();
 			// La clase convierte los objetos del array en arrays asociativos, para la vista
 			foreach($coleccion AS $elemento){
 				$platosComoArray[] = $elemento->getPlatoComoArray();
 			}
 				
-			// Se llama a la vista con los datos necesarios y los Departamentos como Array asociativo
+			// Se llama a la vista con los datos necesarios y los Platos como Array asociativo
 			muestraInicio($platosComoArray, $paginaActual, $ultimaPagina, $cuentaRegistros);
 		}else{
 			// Se llama a la vista con los datos mínimos para que se muestre el mensaje de "No hay resultados"
-			muestraInicio($coleccion, null, 0, 0, 0);
+			muestraInicio($coleccion, 0, 0, 0);
 		}
 	}else{
-		// Se le pasa la descripción del usuario como parámetro
 		// Intentando evitar que la vista conozca el objeto
-		muestraInicio(null, null, 0, 0);
+		muestraInicio(null, 0, 0, 0);
 	}
 ?>

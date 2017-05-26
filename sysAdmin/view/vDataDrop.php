@@ -1,5 +1,5 @@
 <?php
-	inicioPlantilla("Borrado Mantenimiento PDO");
+	inicioPlantilla("Borrado Plato");
 	switch($caso){
 		case "noGet":
 			?>

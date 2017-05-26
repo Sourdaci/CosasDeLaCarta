@@ -143,6 +143,7 @@ EOQ;
 			LIMIT $numeroSaltar, $numeroContar
 EOQ;
 			$resultado = DBPDO::ejecutarConsulta($sql);
+			
 			if($resultado == null || $resultado == false){
                 return null;
             }else{

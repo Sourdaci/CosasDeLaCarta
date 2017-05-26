@@ -12,12 +12,16 @@
 	cursor: pointer;
 }
 
+.listaAdmin{
+	width: 100%;
+}
+
 td{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 	padding: 1px 5px 1px 5px;
 }
 
-tr~tr:hover{
+.trCarta~.trCarta:hover{
 	background-color: #1c0b00;
 }
 

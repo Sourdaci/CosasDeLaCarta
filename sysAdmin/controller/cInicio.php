@@ -29,7 +29,7 @@
 	}
 	
 	// Numero de registros que devuelve la búsqueda
-	$cuentaRegistros = Plato::contarPlatosPorDesc($_SESSION['parametroBusquedaMantenimiento']);
+	$cuentaRegistros = Plato::contarPlatosPorDescAdmin($_SESSION['parametroBusquedaMantenimiento']);
 	
 	if($cuentaRegistros != -1){ // -1 Significa ERROR DE BD
 		
@@ -56,10 +56,11 @@
 			$paginaActual = $ultimaPagina; 
 		}
 	
-		// Pedimos al modelo el array con los resultados
-		$coleccion = Plato::getPlatosPorDesc($_SESSION['parametroBusquedaMantenimiento'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
+		$coleccion = Array();
 		
-		if(count($coleccion) != 0){
+		if($cuentaRegistros != 0){
+			// Pedimos al modelo el array con los resultados
+			$coleccion = Plato::getPlatosPorDescAdmin($_SESSION['parametroBusquedaMantenimiento'], (($paginaActual - 1) * $filasPorPagina), $filasPorPagina);
 			$platosComoArray = Array();
 			// La clase convierte los objetos del array en arrays asociativos, para la vista
 			foreach($coleccion AS $elemento){
@@ -73,7 +74,6 @@
 			muestraInicio($coleccion, 0, 0, 0);
 		}
 	}else{
-		// Se le pasa la descripción del usuario como parámetro
 		// Intentando evitar que la vista conozca el objeto
 		muestraInicio(null, 0, 0, 0);
 	}

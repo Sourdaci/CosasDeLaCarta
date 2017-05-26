@@ -9,22 +9,23 @@
 	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
 		
 		inicioPlantilla("Les Platos");
-		
-		if($coleccionEntradas != null){
-			if(count($coleccionEntradas) > 0){
+		?>
+			<a href="dataInsert.php"><div id="divNuevo"><img src="img/new.png" /><h3>Nuevo Plato</h3></div></a>
+			<!-- Formulario de Filtrado -->
+			<form id="buscaPlatoAdmin" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+				<p>Buscar por nombre Plato: 
+				<input type="text" name="cadenaBusqueda" width="40"> 
+				<input type="submit" name="btnBuscar" value="Buscar">
+				<br />Dejar vacío para buscar todos los Platos</p>
+			</form>
+		<?php
+		if(count($coleccionEntradas) > 0){
 				
 				if(isset($_SESSION['mensaje'])){
 					printf("%s", $_SESSION['mensaje']);
 				}
 				?>
-				<!-- Formulario de Filtrado -->
-				<form id="buscaPlatoAdmin" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-					<p>Buscar por nombre Plato: 
-					<input type="text" name="cadenaBusqueda" width="40"> 
-					<input type="submit" name="btnBuscar" value="Buscar">
-					<br />Dejar vacío para buscar todos los Platos</p>
-				</form>
-				<table>
+				<table class="listaAdmin">
 				<tr>
 					<th>Nombre</th>
 					<th>Temporada</th>
@@ -78,7 +79,7 @@
 					<?php
 				}
 				echo("</table>" . PHP_EOL);
-				
+				echo("<p>");
 				// Generacion de enlaces de Anterior y Siguiente
 				if($paginaActual > 1){ // Anterior
 					echo('<b><a href="'.$_SERVER['PHP_SELF'].'?pag=1">Primera</a></b> ');
@@ -90,12 +91,11 @@
 				}
 				echo("<br />Pagina <b>$paginaActual</b> de <b>$paginaMaxima</b><br />");
 				echo("Entradas: <b>$totalEntradas</b>" . PHP_EOL);
+				echo("</p>");
 			}else{
 				?> <h2>No se han encontrado entradas</h2> <?php
 			}
-		}else{
-			?> <h2>Ha ocurrido un error en las operaciones de BD</h2> <?php
-		}
+		
 		finPlantilla();
 		unset($_SESSION['mensaje']);
 	}

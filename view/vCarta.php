@@ -7,8 +7,16 @@
 	*/
 
 	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
-		
-		if($coleccionEntradas != null){
+		?>
+			<h2>Nuestra carta de Temporada</h2>
+			<!-- Formulario de Filtrado -->
+			<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+				<p>Buscar por nombre Plato: 
+				<input type="text" name="cadenaBusqueda" width="40"> 
+				<input type="submit" name="btnBuscar" value="Buscar">
+				<br />Dejar vacío para buscar todos los Platos</p>
+			</form>
+		<?php
 			if(count($coleccionEntradas) > 0){
 				// Para recuperar los valores de cada elemento en orden
 				$clavesArray = array_keys($coleccionEntradas[0]);
@@ -17,24 +25,15 @@
 					printf("<h2>%s</h2>", $_SESSION['mensaje']);
 				}
 				?>
-				<h2>Nuestra carta de Temporada</h2>
-				<!-- Formulario de Filtrado -->
-				<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-					<p>Buscar por nombre Plato: 
-					<input type="text" name="cadenaBusqueda" width="40"> 
-					<input type="submit" name="btnBuscar" value="Buscar">
-					<br />Dejar vacío para buscar todos los Platos</p>
-				</form>
 				<table>
-				<tr>
+				<tr class="trCarta">
 					<th>Nombre</th>
 					<th>Alérgenos</th>
 				</tr>
-				<tr>
 				<?php
 				// Valores de tabla
 				foreach($coleccionEntradas AS $entrada){
-					echo("<tr>" . PHP_EOL);
+					echo('<tr class="trCarta">' . PHP_EOL);
 					// Recuperación de los valores de elementos
 					echo('<td>' . $entrada["nombre"] . '</td>' . PHP_EOL);
 					echo('<td>');
@@ -66,16 +65,14 @@
 				}
 				echo("<br />Pagina <b>$paginaActual</b> de <b>$paginaMaxima</b><br />");
 				echo("Entradas: <b>$totalEntradas</b>" . PHP_EOL);
-				?>
-				<div id="divCompleta" onclick="location.href='cartaCompleta.php'">
-					<p>Si busca un plato que no encuentra, es posible que no forme parte de la temporada actual. Puede consultar la lista completa aquí.</p>
-				</div>
-				<?php
+
 			}else{
 				?> <h2>No se han encontrado entradas</h2> <?php
 			}
-		}else{
-			?> <h2>Ha ocurrido un error en las operaciones de BD</h2> <?php
-		}
+			?>
+			<div id="divCompleta" onclick="location.href='cartaCompleta.php'">
+				<p>Si busca un plato que no encuentra, es posible que no forme parte de la temporada actual. Puede consultar la lista completa aquí.</p>
+			</div>
+			<?php
 	}
 ?>

@@ -7,16 +7,7 @@
 	*/
 
 	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
-		
-		if($coleccionEntradas != null){
-			if(count($coleccionEntradas) > 0){
-				// Para recuperar los valores de cada elemento en orden
-				$clavesArray = array_keys($coleccionEntradas[0]);
-				
-				if(isset($_SESSION['mensaje'])){
-					printf("<h2>%s</h2>", $_SESSION['mensaje']);
-				}
-				?>
+		?>
 				<h2>Nuestra carta Completa</h2>
 				<!-- Formulario de Filtrado -->
 				<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -25,6 +16,15 @@
 					<input type="submit" name="btnBuscar" value="Buscar">
 					<br />Dejar vacío para buscar todos los Platos</p>
 				</form>
+		<?php
+			if(count($coleccionEntradas) > 0){
+				// Para recuperar los valores de cada elemento en orden
+				$clavesArray = array_keys($coleccionEntradas[0]);
+				
+				if(isset($_SESSION['mensaje'])){
+					printf("<h2>%s</h2>", $_SESSION['mensaje']);
+				}
+				?>
 				<table>
 				<tr>
 					<th>Nombre</th>
@@ -82,8 +82,5 @@
 			}else{
 				?> <h2>No se han encontrado entradas</h2> <?php
 			}
-		}else{
-			?> <h2>Ha ocurrido un error en las operaciones de BD</h2> <?php
-		}
 	}
 ?>
