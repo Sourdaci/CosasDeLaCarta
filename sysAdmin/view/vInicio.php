@@ -18,7 +18,7 @@
 				}
 				?>
 				<!-- Formulario de Filtrado -->
-				<form id="buscaPlato" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+				<form id="buscaPlatoAdmin" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 					<p>Buscar por nombre Plato: 
 					<input type="text" name="cadenaBusqueda" width="40"> 
 					<input type="submit" name="btnBuscar" value="Buscar">
@@ -29,6 +29,8 @@
 					<th>Nombre</th>
 					<th>Temporada</th>
 					<th>Alérgenos</th>
+					<th>Editar</th>
+					<th>Borrar</th>
 				</tr>
 				<tr>
 				<?php
@@ -41,9 +43,9 @@
 					foreach($entrada["season"] AS $nombre => $valor){
 						if($valor){
 							if($nombre == "Otono"){
-								echo('<div class="icoAlergia ico' . $nombre . '" title="Otoño"></div>');
+								echo('<div class="icoAlergiaAdmin ico' . $nombre . '" title="Otoño"></div>');
 							}else{
-								echo('<div class="icoAlergia ico' . $nombre . '" title="' . $nombre . '"></div>');
+								echo('<div class="icoAlergiaAdmin ico' . $nombre . '" title="' . $nombre . '"></div>');
 							}
 							
 						}
@@ -53,12 +55,12 @@
 					$rellenar = true;
 					foreach($entrada["alergias"] AS $nombre => $valor){
 						if($valor){
-							echo('<div class="icoAlergia ico' . $nombre . '" title="' . $nombre . '"></div>');
+							echo('<div class="icoAlergiaAdmin ico' . $nombre . '" title="' . $nombre . '"></div>');
 							$rellenar = false;
 						}
 					}
 					if($rellenar){
-						echo('<div class="icoAlergia"></div>');
+						echo('<div class="icoAlergiaAdmin"></div>');
 					}
 					echo('</td>');
 					?>

@@ -24,7 +24,6 @@
 		){
 			$this->cod = $cod;
 			$this->nombre = $nombre;
-			//$this->tipo = $tipo;
 			
 			$this->temporadas = Array();
 			$this->temporadas["Primavera"] = $esPrimavera;
@@ -179,8 +178,8 @@
 		*/
 		public static function getPlatosPorDesc($desc, $numeroSaltar, $numeroContar){
 			$listaRecibida = PlatoPDO::getPlatosPorDesc($desc, $numeroSaltar, $numeroContar);
+			$objetosPlato = Array();
 			if($listaRecibida != null){
-				$objetosPlato = Array();
 				foreach($listaRecibida AS $entrada){
 					$objetosPlato[] = new Plato($entrada['cod'], $entrada['nombre'], 
 						$entrada['Primavera'], $entrada['Verano'], $entrada['Otono'], $entrada['Invierno'], 
@@ -189,10 +188,10 @@
 						$entrada['Apio'], $entrada['Mostaza'], $entrada['Sesamo'], $entrada['Sulfitos'], 
 						$entrada['Altramuces'], $entrada['Moluscos']);
 				}
-				return $objetosPlato;
 			}else{
-				return null;
+				$objetosPlato = null;
 			}
+			return $objetosPlato;
 		}
 		
 		/*

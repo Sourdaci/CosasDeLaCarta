@@ -8,7 +8,7 @@
 	
 	// Se utiliza para evitar errores de importación duplicada
 	// Y a la vez importa si no lo hacen las clases que importen a esta
-	require_once(__DIR__ ."/../../configuraciones.php");
+	require_once(__DIR__ ."/../configuraciones.php");
 	
 	class DBPDO{
 		

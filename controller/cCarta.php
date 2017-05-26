@@ -50,7 +50,7 @@
 			$platosComoArray = Array();
 			// La clase convierte los objetos del array en arrays asociativos, para la vista
 			foreach($coleccion AS $elemento){
-				$platosComoArray[] = Plato::getPlatoComoArray($elemento);
+				$platosComoArray[] = $elemento->getPlatoComoArray();
 			}
 				
 			// Se llama a la vista con los datos necesarios y los Departamentos como Array asociativo

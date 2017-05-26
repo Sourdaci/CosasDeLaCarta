@@ -59,6 +59,9 @@
 				<div class="menuContainer" onclick="location.href='carta.php'">
 					<span class="menuText">Carta</span>
 				</div>
+				<div class="menuContainer" onclick="location.href='nosotros.php'">
+					<span class="menuText">Nosotros</span>
+				</div>
 			</nav>
 			<div id="contenido">
 		<?php
