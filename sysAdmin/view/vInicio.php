@@ -32,6 +32,7 @@
 					<th>Alérgenos</th>
 					<th>Editar</th>
 					<th>Borrar</th>
+					<th>Visibilidad</th>
 				</tr>
 				<tr>
 				<?php
@@ -75,11 +76,11 @@
 					<img src="img/delete.png" alt="Borrar" />
 					</a>
 					</td>
-					<!--<td>
+					<td>
 						<?php
-							//echo('<button data-cod="' . $entrada['cod'] . '" class="buttonAPI"></button>');
+							echo('<button id="botonVer' . $entrada['cod'] . '" data-cod="' . $entrada['cod'] . '" class="buttonAPI"></button>');
 						?>
-					</td>-->
+					</td>
 					</tr>
 					<?php
 				}

@@ -18,7 +18,7 @@
 		// Petición con codUsuario para consultar
 		if(isset($_GET['cod'])){
 			// Búsqueda de usuario
-			if(Plato::mostrarPlato($_GET['Plato'])){
+			if(Plato::mostrarPlato($_GET['cod'])){
 				// Plato mostrado
 				$json = json_encode(Array("res" => true));
 			}else{

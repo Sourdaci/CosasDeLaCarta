@@ -1,49 +1,47 @@
 $(document).ready(function(){
 	$(".buttonAPI").each(function(){
-		if(visible(this).attr("data-cod")){
-			this.attr("onclick") = "ocultar(" + (this).attr("data-cod") + ")";
+		visible($(this).attr("data-cod"), $(this));
+	});
+});
+
+function visible(cod, boton){
+	var answer;
+	$.getJSON("http://sourdaci.no-ip.org/api/visibleAPI.php?cod=" + cod, function(respuesta){
+		if(respuesta['res']){
+			boton.attr("onclick", "ocultar(" + cod + ")");
 			boton.html("Ocultar");
 		}else{
-			this.attr("onclick") = "mostrar(" + (this).attr("data-cod") + ")";
+			boton.attr("onclick", "mostrar(" + cod + ")");
 			boton.html("Mostrar");
 		}
-	)};
-)};
-
-function visible(cod){
-	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/proyErmi/api/visibleAPI.php?cod=" + cod, function(respuesta){
-		answer = respuesta['res'];
 	}).done(function(){
-		alert(answer);
-	});
-	return answer;
-}
-
-function ocultar(cod, boton){
-	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/proyErmi/api/ocultarAPI.php?cod=" + cod, function(respuesta){
-		answer = respuesta['res'];
-	}).done(function(){
-		if(answer){
-			boton.attr("onclick") = "mostrar(" + cod + ")";
-			boton.html("Mostrar");
-		}else{
-			
-		}
 	});
 }
 
-function mostrar(cod, boton){
+function ocultar(cod){
 	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/proyErmi/api/mostrarAPI.php?cod=" + cod, function(respuesta){
-		answer = respuesta['res'];
-	}).done(function(){
-		if(answer){
-			boton.attr("onclick") = "ocultar(" + cod + ")";
-			boton.html("Ocultar");
+	$.getJSON("http://sourdaci.no-ip.org/api/ocultarAPI.php?cod=" + cod, function(respuesta){
+		if(respuesta['res']){
+			$("#botonVer" + cod).attr("onclick","mostrar(" + cod + ")");
+			$("#botonVer" + cod).html("Mostrar");
 		}else{
-			
+			$("#botonVer" + cod).removeAttr("onclick");
+			$("#botonVer" + cod).html("ERROR");
 		}
+	}).done(function(){
+	});
+}
+
+function mostrar(cod){
+	var answer;
+	$.getJSON("http://sourdaci.no-ip.org/api/mostrarAPI.php?cod=" + cod, function(respuesta){
+		if(respuesta['res']){
+			$("#botonVer" + cod).attr("onclick", "ocultar(" + cod + ")");
+			$("#botonVer" + cod).html("Ocultar");
+		}else{
+			$("#botonVer" + cod).removeAttr("onclick");
+			$("#botonVer" + cod).html("ERROR");
+		}
+	}).done(function(){
 	});
 }
