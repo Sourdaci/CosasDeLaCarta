@@ -351,5 +351,12 @@
 		public static function platoVisible($cod){
 			return PlatoPDO::platoVisible($cod);
 		}
+		
+		public static function cambioTemporada($nueva){
+			PlatoPDO::cambioTemporada($nueva);
+		}
+		public static function getTemporada(){
+			return PlatoPDO::getTemporada();
+		}
 	}
 ?>

@@ -6,11 +6,26 @@
 	*
 	*/
 
-	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas){
+	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas, $valoresDesplegable, $temporadaActual){
 		
 		inicioPlantilla("Les Platos");
 		?>
 			<a href="dataInsert.php"><div id="divNuevo"><img src="img/new.png" /><h3>Nuevo Plato</h3></div></a>
+				<form id="cambioTemporada" name="cambioTemporada" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+					<select name="desplegable">
+					<?php
+						foreach($valoresDesplegable as $indiceDesplegable => $valorDesp){
+							if(strcmp($temporadaActual, $valorDesp) == 0){
+								printf('<option value="%s" selected>%s</option>', $valorDesp, $valorDesp);
+							}else{
+								printf('<option value="%s">%s</option>', $valorDesp, $valorDesp);
+							}
+						}
+					?>
+					</select>
+					<input type="submit" name="btnTemporada" value="Cambiar">
+				</form>
+				
 			<!-- Formulario de Filtrado -->
 			<form id="buscaPlatoAdmin" name="BuscaPlato" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 				<p>Buscar por nombre Plato: 

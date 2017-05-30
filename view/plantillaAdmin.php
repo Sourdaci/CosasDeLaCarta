@@ -32,7 +32,6 @@
 		<?php
 		printf('<form id="formExit" action=%s method="post">', $_SERVER['PHP_SELF']);
 		echo('<button type="submit" name="salir" value="salir">Cerrar sesión</button>');
-		echo("</p>");
 		echo("</form>");
 	}
 	

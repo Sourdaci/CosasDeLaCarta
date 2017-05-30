@@ -96,17 +96,19 @@ EOQ;
             }
 		}
 		
-		private static function getTemporadaParaQuery(){
-			
+		public static function getTemporada(){
 			$sql = <<< EOQ
 			SELECT Temporada 
 			FROM Config
 EOQ;
 			
 			$resultado = DBPDO::ejecutarConsulta($sql);
+			return $resultado->fetch(PDO::FETCH_ASSOC)['Temporada'];
+		}
+		
+		private static function getTemporadaParaQuery(){
 			
-			$temporada = "";
-			switch($resultado->fetch(PDO::FETCH_ASSOC)['Temporada']){
+			switch(self::getTemporada()){
 				case "Primavera":
 					$temporada = "AND Primavera=true";
 					break;
@@ -425,6 +427,14 @@ EOQ;
                     return false;
                 }
             }
+		}
+		
+		public static function cambioTemporada($nueva){
+			$sql = <<< EOQ
+            UPDATE Config
+			SET Temporada="$nueva"
+EOQ;
+			$resultado = DBPDO::ejecutarConsulta($sql);
 		}
 	}
 ?>

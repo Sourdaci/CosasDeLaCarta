@@ -28,6 +28,18 @@
 		$_SESSION['parametroBusquedaMantenimiento'] = $_POST['cadenaBusqueda'];
 	}
 	
+	$valoresDesplegable = array("Primavera", "Verano", "Otoño", "Invierno");
+	
+	//Se cambia de temporada
+	if($_POST['btnTemporada']){
+		// Si la cadena coincide con una de las opciones, se continúa
+		if(in_array($_POST['desplegable'], $valoresDesplegable)){
+			Plato::cambioTemporada($_POST['desplegable']);
+		}
+	}
+	
+	$temporadaActual = Plato::getTemporada();
+	
 	// Numero de registros que devuelve la búsqueda
 	$cuentaRegistros = Plato::contarPlatosPorDescAdmin($_SESSION['parametroBusquedaMantenimiento']);
 	
@@ -68,13 +80,13 @@
 			}
 			
 			// Se llama a la vista con los datos necesarios y los Platos como Array asociativo
-			muestraInicio($platosComoArray, $paginaActual, $ultimaPagina, $cuentaRegistros);
+			muestraInicio($platosComoArray, $paginaActual, $ultimaPagina, $cuentaRegistros, $valoresDesplegable, $temporadaActual);
 		}else{
 			// Se llama a la vista con los datos mínimos para que se muestre el mensaje de "No hay resultados"
-			muestraInicio($coleccion, 0, 0, 0);
+			muestraInicio($coleccion, 0, 0, 0, $valoresDesplegable, $temporadaActual);
 		}
 	}else{
 		// Intentando evitar que la vista conozca el objeto
-		muestraInicio(null, 0, 0, 0);
+		muestraInicio(null, 0, 0, 0, $valoresDesplegable, $temporadaActual);
 	}
 ?>
