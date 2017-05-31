@@ -12,12 +12,6 @@
 	padding: 0;
 }
 
-html, body{
-	height: 100%;
-	min-height: 600px;
-	min-width: 800px;
-}
-
 a{
 	color: #DEB900;
 }
@@ -25,17 +19,17 @@ a{
 body{
 	background-color: #2d1c0c;
 	font-family: CourgetteRegular;
+	display: flex;
+	flex-direction: column;
 }
 
 header{
-	height: 20%;
-	min-height: 120px;
 	color: #DEB900;
 }
 
 #pageTitle{
 	font-weight: bold;
-	font-size: 4vw;
+	font-size: 8vw;
 	font-style: italic;
 	margin-left: 10%;
 	padding-top: 2%;
@@ -46,17 +40,15 @@ header:hover{
 }
 
 nav{
-	width: 20%;
-	min-width: 140px;
 	color: #DEB900;
-	padding-top: 10%
+	padding-top: 2%;
 }
 
 .menuContainer{
 	font-weight: bold;
-	font-size: 1.6vw;
+	font-size: 3vw;
 	font-style: italic;
-	text-align: right;
+	text-align: center;
 	padding: 2% 3% 2% 0;
 }
 
@@ -74,17 +66,6 @@ nav{
 }
 
 #contenido{
-	width: 80%;
-	min-width: 660px;
 	color: white;
 	padding: 10px;
-	background-image: url("../img/castillico.png");
-	background-position: bottom right;
-	background-repeat: no-repeat;
-}
-
-main{
-	height: 80%;
-	min-height: 480px;
-	display: flex;
 }
