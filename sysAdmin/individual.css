@@ -2,6 +2,7 @@ header h1{
 	position: relative;
 	top: 40px;
 	left: 50px;
+	display: inline;
 }
 
 #headLogin h1{
@@ -15,7 +16,7 @@ header h1{
 
 #botonAtras{
 	position: absolute;
-	right: 50px;
+	right: 10%;
 	top: 60px;
 }
 
@@ -54,23 +55,29 @@ tr>td:last-child{
 	border-right: none;
 }
 
-tr>td{
-	text-align: center;
-	width: 44px;
-}
-
 tr>td:first-child{
 	text-align: right;
 }
 
-tr>td:nth-child(2){
-	text-align: left;
-	width: 180px;
+#controlesSuperiores, #divNuevo{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
-#divNuevo{
-	display: flex;
-	align-items: center;
+#controlesSuperiores{
+	justify-content: space-around;
+	padding: 10px;
+}
+
+#aNuevo{
+	width: 20%;
+	box-shadow: 0 0 5px white;
+}
+
+#cambioTemporada, #cambioTemporada>select, #cambioTemporada>input{
+	font-size: 1.4vw;
+	font-family: CourgetteRegular;
 }
 
 .campoMaloFormulario
