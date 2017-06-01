@@ -7,9 +7,8 @@
 	function paginaImagenes(){
 		inicioCabecera();
 		?>
-		
-		<link id="pagestyle" rel="stylesheet" href="webroot/css/caroussel.css">
 		<script src="webroot/js/jquery.min.js" type="text/javascript"></script>
+		<link id="pagestyle" rel="stylesheet" href="webroot/css/caroussel.css">
 		<script src="webroot/js/caroussel.js" type="text/javascript"></script>
 		<?php
 		finCabecera();
