@@ -1,7 +1,7 @@
 <?php
 	inicioPlantilla("Nuevo Plato");
 	?>
-	<form name="FormCrear" action="<?php echo(htmlspecialchars($_SERVER['PHP_SELF'])) ?>" method="post">
+	<form id="formCrear" name="FormCrear" action="<?php echo(htmlspecialchars($_SERVER['PHP_SELF'])) ?>" method="post">
 		<?php
 			if(isset($_POST['btnEnviar'])){
 				printf('Nombre del Plato: <input type="text" name="nombre" ');

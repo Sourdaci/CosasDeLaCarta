@@ -84,3 +84,13 @@ tr>td:first-child{
 {
 	background-color: #F00;
 }
+
+#formCrear{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+#formCrear>*{
+	padding: 5px;
+}
