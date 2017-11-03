@@ -39,7 +39,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="/webroot/img/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/webroot/img/favicon.ico" type="image/x-icon">
-		<title>Le Escocésé</title>
+		<title>Ham On Cete</title>
 		<?php
 			/*
 				http://mobiledetect.net/
@@ -58,7 +58,7 @@
 	</head>
 	<body>
 		<header>
-			<p id="pageTitle">Le Escocésé</p>
+			<p id="pageTitle">Ham On Cete</p>
 		</header>
 		<main>
 			<nav>
