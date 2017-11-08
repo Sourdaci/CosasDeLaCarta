@@ -38,7 +38,7 @@
             return $preparedStatement;
         }
 		
-		// Devuelve el número de registros que encuentra la consulta
+		// Devuelve el número de registros que contiene la consulta recibida por parámetro
 		// En caso de error, devuelve -1
 		public static function ejecutarCuenta($sentenciaSQL){
 			$resultSet = self::ejecutarConsulta($sentenciaSQL);
@@ -49,6 +49,9 @@
 			}
 		}
 		
+		// Compara la contraseña de acceso administrativo recibida con la almacenada en la base de datos
+		// Si son iguales, devuelve true
+		// En cualquier otro caso, devuelve false
 		public static function verificar($pass){
 
             $sql = <<< EOQ
