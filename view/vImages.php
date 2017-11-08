@@ -13,6 +13,8 @@
 		<div id="imagen_4"><img class="img_carrusel" src="webroot/img/gallery/05.jpg" width="195px" height="100px" /></div>
 		<div id="imagen_4"><img class="img_carrusel" src="webroot/img/gallery/06.jpg" width="195px" height="100px" /></div>
 		<div id="imagen_4"><img class="img_carrusel" src="webroot/img/gallery/07.jpg" width="195px" height="100px" /></div>
+		<div id="imagen_4"><img class="img_carrusel" src="webroot/img/gallery/08.jpg" width="195px" height="100px" /></div>
+		<div id="imagen_4"><img class="img_carrusel" src="webroot/img/gallery/09.jpg" width="195px" height="100px" /></div>
 	</div>
 </div>
 		<?php

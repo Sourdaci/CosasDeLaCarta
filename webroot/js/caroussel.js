@@ -1,7 +1,7 @@
 var posicion = 0;
  var imagenes = new Array();
  $(document).ready(function() {
-   var cantidadImagenes = 7;
+   var cantidadImagenes = 9;
    if(cantidadImagenes<=3){
        $('.derecha_flecha').css('display','none');
     $('.izquierda_flecha').css('display','none');
