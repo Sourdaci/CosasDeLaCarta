@@ -13,7 +13,7 @@
 }
 
 a{
-	color: #DEB900;
+	color: #FF9984;
 }
 
 body{
@@ -24,7 +24,7 @@ body{
 }
 
 header{
-	color: #DEB900;
+	color: #FF9984;
 }
 
 #pageTitle{
@@ -40,7 +40,7 @@ header:hover{
 }
 
 nav{
-	color: #DEB900;
+	color: #FF9984;
 	padding-top: 2%;
 }
 
@@ -60,7 +60,7 @@ nav{
 }
 
 .menuText:hover{
-	background-color: #DEB900;
+	background-color: #FF9984;
 	box-shadow: 0 0 10px white;
 	color: white;
 }

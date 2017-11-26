@@ -1,9 +1,9 @@
 <?php
 	function muestraNosotros(){
 		?>
-		<h2 style="margin: 1% auto 1% 1%;">Información y Reservas: F4K3PH0N3</h2>
-		<h2 style="margin: 1% auto 0 1%;">Abrimos de 11:00 a 00:00</h2>
-		<h2 style="margin: 1% auto 0 1%;">Todos los días salvo Nochevieja y Año nuevo</h2>
+		<h2 style="margin: 1% auto 1% 1%;">Información y Reservas: 900 400 922</h2>
+		<h2 style="margin: 1% auto 0 1%;">Abrimos de 10:00 a 22:00</h2>
+		<h2 style="margin: 1% auto 0 1%;">De Lunes a Sábado, festivos no incluídos</h2>
 		<h2 style="margin: 1% auto 0 1%;">Dirección: Calle "Me falta un tornillo 5"</h2>
 		<h2 style="margin: 0 auto 1% 1%;">CP 47195, Arroyo de la Encomienda (Valladolid)</h2>
 		<div id="googleMap">

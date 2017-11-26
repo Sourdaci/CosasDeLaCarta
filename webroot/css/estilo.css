@@ -19,7 +19,7 @@ html, body{
 }
 
 a{
-	color: #DEB900;
+	color: #FF9984;
 }
 
 body{
@@ -30,7 +30,7 @@ body{
 header{
 	height: 20%;
 	min-height: 120px;
-	color: #DEB900;
+	color: #FF9984;
 }
 
 #pageTitle{
@@ -48,7 +48,7 @@ header:hover{
 nav{
 	width: 20%;
 	min-width: 140px;
-	color: #DEB900;
+	color: #FF9984;
 	padding-top: 10%
 }
 
@@ -68,7 +68,7 @@ nav{
 }
 
 .menuText:hover{
-	background-color: #DEB900;
+	background-color: #FF9984;
 	box-shadow: 0 0 10px white;
 	color: white;
 }
@@ -84,4 +84,15 @@ main{
 	height: 80%;
 	min-height: 480px;
 	display: flex;
+}
+
+#jamoncete{
+	width: 100px;
+	height: 75px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-image: url("../img/jamoncete.png");
+	background-position: center;
+	background-size: 100% 100%;
 }

@@ -29,7 +29,7 @@
 		$password = $_POST['password']; 
 		
 		if (empty($password)){
-			$_SESSION['errorLogin'] = "Debes introducir un nombre de usuario y una contraseña"; 
+			$_SESSION['errorLogin'] = "Debes introducir un Password"; 
 		}else { 
 			// Comprobamos las credenciales con la base de datos
 			$recibido = DBPDO::verificar($password); 

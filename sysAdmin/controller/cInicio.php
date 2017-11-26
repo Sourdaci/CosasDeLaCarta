@@ -16,7 +16,7 @@
     if (!isset($_SESSION['usuario'])){
 		// No hay usuario logueado, se le enviará al inicio de sesión
 		header("Content-Type: text/html;charset=utf-8");
-        header('Location: controller/cLogin.php');
+        header('Location: ../index.php');
     }
 	
 	// Inicialización del parámetro de búsqueda

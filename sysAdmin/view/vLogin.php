@@ -5,13 +5,13 @@
 	</head>
 	<body id="loginBody">
 		<header id="headLogin">
-			<h1>sysAdmin Login</h1>
+			<h1>Acceso Administrativo</h1>
 		</header>
 		<main>
 			<div id='login'> 
 				<form action='<?php $_SERVER['PHP_SELF']; ?>' method='post'>
 					<fieldset style="width:20%;min-width:200px;"> 
-						<legend>sysAdmin Login</legend> 
+						<legend>Acceso Administrativo</legend> 
 						<div><span class='error'><?php echo $_SESSION['errorLogin']; ?></span></div>
 						<div class='campo'> 
 							<label for='password' >Contraseña:</label><br/> 
