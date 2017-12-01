@@ -2,7 +2,7 @@
 
 	define("DBHOST", "localhost");
 	define("DBUSER", "root");
-	define("DBPASS", "toor");
+	define("DBPASS", "paso");
 	
 	// Plantilla de estilo
 	define("PLANTILLA_ESTILO", __DIR__ . "/view/plantillaAdmin.php");
