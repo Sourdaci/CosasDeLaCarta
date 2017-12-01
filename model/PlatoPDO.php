@@ -411,6 +411,13 @@ EOQ;
             }
 		}
 		
+		/*
+		*
+		* Consulta en la BD si el plato con el código indicado es visible
+		* Devuelve true si el plato es visible
+		* Devuelve false si el plato no es visible u ocurre algún error
+		*
+		*/
 		public static function platoVisible($cod){
 			$sql = <<< EOQ
             SELECT Visible 
@@ -428,7 +435,11 @@ EOQ;
                 }
             }
 		}
-		
+		/*
+		*
+		* Recibe la temporada nueva del menú y la guarda en la BD
+		*
+		*/
 		public static function cambioTemporada($nueva){
 			$sql = <<< EOQ
             UPDATE Config

@@ -18,5 +18,5 @@ function mobileCheck(){
 	}
 	
 	//alert(typeof(navigator.userAgent));
-	alert(navigator.userAgent);
+	//alert(navigator.userAgent);
 }

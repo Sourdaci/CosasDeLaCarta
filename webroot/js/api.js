@@ -4,9 +4,11 @@ $(document).ready(function(){
 	});
 });
 
+var url = "http://sourdaci.no-ip.org/api/";
+
 function visible(cod, boton){
 	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/api/visibleAPI.php?cod=" + cod, function(respuesta){
+	$.getJSON(url + "visibleAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			boton.attr("onclick", "ocultar(" + cod + ")");
 			boton.html("Ocultar");
@@ -20,7 +22,7 @@ function visible(cod, boton){
 
 function ocultar(cod){
 	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/api/ocultarAPI.php?cod=" + cod, function(respuesta){
+	$.getJSON(url + "ocultarAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			$("#botonVer" + cod).attr("onclick","mostrar(" + cod + ")");
 			$("#botonVer" + cod).html("Mostrar");
@@ -34,7 +36,7 @@ function ocultar(cod){
 
 function mostrar(cod){
 	var answer;
-	$.getJSON("http://sourdaci.no-ip.org/api/mostrarAPI.php?cod=" + cod, function(respuesta){
+	$.getJSON(url + "mostrarAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			$("#botonVer" + cod).attr("onclick", "ocultar(" + cod + ")");
 			$("#botonVer" + cod).html("Ocultar");
