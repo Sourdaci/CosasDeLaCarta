@@ -7,7 +7,6 @@ $(document).ready(function(){
 var url = "http://sourdaci.no-ip.org/api/";
 
 function visible(cod, boton){
-	var answer;
 	$.getJSON(url + "visibleAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			boton.attr("onclick", "ocultar(" + cod + ")");
@@ -21,7 +20,6 @@ function visible(cod, boton){
 }
 
 function ocultar(cod){
-	var answer;
 	$.getJSON(url + "ocultarAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			$("#botonVer" + cod).attr("onclick","mostrar(" + cod + ")");
@@ -35,7 +33,6 @@ function ocultar(cod){
 }
 
 function mostrar(cod){
-	var answer;
 	$.getJSON(url + "mostrarAPI.php?cod=" + cod, function(respuesta){
 		if(respuesta['res']){
 			$("#botonVer" + cod).attr("onclick", "ocultar(" + cod + ")");
