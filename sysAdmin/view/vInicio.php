@@ -9,6 +9,9 @@
 	function muestraInicio($coleccionEntradas, $paginaActual, $paginaMaxima, $totalEntradas, $valoresDesplegable, $temporadaActual){
 		
 		inicioPlantilla("Les Platos");
+		printf('<form id="formExit" action=%s method="post">', $_SERVER['PHP_SELF']);
+		echo('<button type="submit" name="salir" value="salir">Cerrar sesión</button>');
+		echo("</form>");
 		?>
 			<div id="controlesSuperiores">
 				<a id="aNuevo" href="dataInsert.php"><div id="divNuevo"><img src="img/new.png" /><h3>Nuevo Plato</h3></div></a>
