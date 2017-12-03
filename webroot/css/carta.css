@@ -2,6 +2,22 @@
 	box-shadow: 0 0 5px white;
 	width: 40%;
 	min-width: 380px;
+	border-radius: 5px;
+}
+
+#buscaPlato, #buscaPlatoAdmin{
+	padding: 5px;
+	margin: 10px 0;
+}
+
+input[type="submit"]{
+	font-style: italic;
+	font-weight: bold;
+	border-radius: 4px;
+	padding-left: 6px;
+	padding-right: 8px;
+	background-color: #FF9984;
+	border-style: none;
 }
 
 #divCompleta{
