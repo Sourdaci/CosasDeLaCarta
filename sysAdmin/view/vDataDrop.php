@@ -13,33 +13,34 @@
 			break;
 		case "noPost":
 			?>
-			<form name="FormModif" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) . "?id=" .  $_GET['id'] ?>" method="post">
+			<form id="FormBorra" name="FormModif" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) . "?id=" .  $_GET['id'] ?>" method="post">
 				<?php
 					printf('Cod: <input readonly type="number" name="cod" value="' . $datosEntrada['cod'] . '"><br />');
 					printf('Nombre del Plato: <input readonly type="text" name="nombre" value="' . $datosEntrada['nombre'] . '"><br />');
 					?>
-					<table>
-					<tr><th>Temporada</th></tr>
-					<tr>
+					<fieldset>
+						<legend>Temporada</legend>
+						<div class="datosForm">
 						<?php
 						if($datosEntrada['season']["Primavera"]){
-							echo('<td><div class="icoAlergiaAdmin icoPrimavera" title="Primavera"></div></td>');
+							echo('<div class="icoAlergiaAdmin icoPrimavera" title="Primavera"></div>');
 						}
 						if($datosEntrada['season']["Verano"]){
-							echo('<td><div class="icoAlergiaAdmin icoVerano" title="Verano"></div></td>');
+							echo('<div class="icoAlergiaAdmin icoVerano" title="Verano"></div>');
 						}
 						if($datosEntrada['season']["Otono"]){
-							echo('<td><div class="icoAlergiaAdmin icoOtono" title="Otoño"></div></td>');
+							echo('<div class="icoAlergiaAdmin icoOtono" title="Otoño"></div>');
 						}
 						if($datosEntrada['season']["Invierno"]){
-							echo('<td><div class="icoAlergiaAdmin icoInvierno" title="Invierno"></div></td>');
+							echo('<div class="icoAlergiaAdmin icoInvierno" title="Invierno"></div>');
 						}
 						?>
-					</tr>
-					</table>
-					<table>
-					<tr><th>Alergias</th></tr>
-					<tr>
+						</div>
+					</fieldset>
+					<br />
+					<fieldset>
+						<legend>Alergias</legend>
+						<div class="datosForm">
 						<?php
 							if($datosEntrada['alergias']['Gluten']){
 								echo('<td><div class="icoAlergiaAdmin icoGluten" title="Gluten"></div></td>');
@@ -84,8 +85,9 @@
 								echo('<td><div class="icoAlergiaAdmin icoMoluscos" title="Moluscos"></div></td>');
 							}
 						?>
-					</tr>
-				</table>
+						</div>
+					</fieldset>
+					<br />
 				<input type="submit" name="btnEnviar" value="Borrar">
 			</form>
 			<?php

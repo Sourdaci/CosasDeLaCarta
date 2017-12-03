@@ -5,7 +5,7 @@
 	</head>
 	<body id="loginBody">
 		<header id="headLogin">
-			<h1>Acceso Administrativo</h1>
+			<h1>No tan rápido, zona privada</h1>
 		</header>
 		<main>
 			<div id='login'> 

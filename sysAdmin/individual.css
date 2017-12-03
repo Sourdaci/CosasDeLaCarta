@@ -99,12 +99,41 @@ tr>td:first-child{
 	background-color: #F00;
 }
 
-#formCrear{
+#formCrear, #FormModif, #FormBorra{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: flex-start;
 }
 
 #formCrear>*{
 	padding: 5px;
+}
+
+input[name="nombre"]{
+	width: 300px;
+}
+
+input[type="submit"]{
+	font-size: 24px;
+	padding: 5px 10px;
+}
+
+.datosForm{
+	display: flex;
+	flex-direction: row;
+}
+
+.datosForm, .datosForm>div{
+	margin: 5px;
+	padding: 5px;
+}
+
+.datosForm>div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.datosForm>div>input{
+	margin: 5px;
 }
